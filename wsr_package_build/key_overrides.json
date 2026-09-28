@@ -1,0 +1,6 @@
+{
+  "_comment": "Manual displayed-text -> CSV key assignments for the developer overlay (mirrored in game_files/js/wsr-key-overrides.js).",
+  "_usage": "Key: text exactly as displayed in the game (after translation). Value: the CSV key to show for it.",
+  "_example": "Replace this placeholder with real entries when a text is matched to the wrong key.",
+  "overrides": {}
+}

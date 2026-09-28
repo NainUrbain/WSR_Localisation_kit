@@ -1,0 +1,6 @@
+﻿type,code,name_en,extra_en,target,gender,number,elision
+news_commodity,01,cocoa,,코코아,,,
+news_commodity,02,palm oil,,팜유,,,
+news_commodity,03,palladium,,팔라듐,,,
+news_commodity,04,pork belly,,돈육(삼겹살),,,
+news_commodity,05,coffee,,커피,,,

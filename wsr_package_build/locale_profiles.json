@@ -1,0 +1,29 @@
+{
+  "ko-KR": {
+    "name": "한국어",
+    "data_prefix": "ko",
+    "morphology": "ko",
+    "runtime_module": "lang-ko.js",
+    "runtime_export": "KO_RULES",
+    "target_column": "Target (KO)",
+    "warning": "공식 번역이 아닙니다. 일부 문장이나 화면은 영어로 표시될 수 있습니다."
+  },
+  "fr-FR": {
+    "name": "Français",
+    "data_prefix": "fr",
+    "morphology": "fr",
+    "runtime_module": "lang-fr.js",
+    "runtime_export": "FR_RULES",
+    "target_column": "Target (FR)",
+    "warning": "Traduction communautaire en cours. Les entrées non traduites restent en anglais."
+  },
+  "ja-JP": {
+    "name": "日本語",
+    "data_prefix": "ja",
+    "morphology": "ja",
+    "runtime_module": "lang-ja.js",
+    "runtime_export": "JA_RULES",
+    "target_column": "Target (JA)",
+    "warning": "コミュニティ翻訳は作業中です。未翻訳の部分は英語のまま表示されます。"
+  }
+}
