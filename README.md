@@ -84,6 +84,8 @@ Save files are never touched.
 - Coverage depends on what was seen in the game. The translation data was built by capturing the text shown on screen during play, so text that was never seen or captured — rare events, unusual situations — will most likely stay in English.
 - A game update will very likely break the patch until the manifest is updated.
 - Numeric and currency formatting remains based on the game's English formats. Fixed-width report and table headers stay in English because translating them in place would break column alignment; localized header meanings are provided as hover tooltips instead.
+- The translations were built with the US dollar as the game currency. Choosing another currency in the game's settings may leave sentences that contain amounts untranslated or partly translated.
+- Renaming your player or rival companies may break the recognition of sentences that contain those names, leaving them untranslated or mistranslated. The default names are the safest choice.
 - Translation keys do not interact directly with game data. They are labels that identify what each translation row represents; changing a key does not change the corresponding game data or behavior.
 - Some news-event text contains opaque tokens such as `@HUMOR` and `@TEXTSTRING` whose generated values and exact meanings cannot be determined reliably. News-event strings that depend on these tokens are therefore not included as translatable rows in the CSV files.
 - Long table or button labels may wrap differently depending on font metrics and window size.
