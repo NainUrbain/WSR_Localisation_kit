@@ -1,0 +1,1264 @@
+{
+  "_comment": "Rows the Korean generator assembles from pieces (fragment families, table headers). Every other row is classified from its source text by translation_csvs.classify().",
+  "advisory_commodity_lead_market": {
+    "category": "Candidate Template",
+    "fragments": [
+      "ADVISORY_COMMODITY:lead"
+    ]
+  },
+  "advisory_commodity_lead_meanwhile": {
+    "category": "Candidate Template",
+    "fragments": [
+      "ADVISORY_COMMODITY:lead"
+    ]
+  },
+  "advisory_commodity_lead_plain": {
+    "category": "Candidate Template",
+    "fragments": [
+      "ADVISORY_COMMODITY:lead"
+    ]
+  },
+  "advisory_commodity_tail_down": {
+    "category": "Candidate Template",
+    "fragments": [
+      "ADVISORY_COMMODITY:tail"
+    ]
+  },
+  "advisory_commodity_tail_followup_down": {
+    "category": "Candidate Template",
+    "fragments": [
+      "ADVISORY_COMMODITY:followup"
+    ]
+  },
+  "advisory_commodity_tail_followup_rebound": {
+    "category": "Candidate Template",
+    "fragments": [
+      "ADVISORY_COMMODITY:followup"
+    ]
+  },
+  "advisory_commodity_tail_up": {
+    "category": "Candidate Template",
+    "fragments": [
+      "ADVISORY_COMMODITY:tail"
+    ]
+  },
+  "advisory_condition_favorable_lead": {
+    "category": "Economic Fragment",
+    "fragments": [
+      "ECONOMIC:lead"
+    ]
+  },
+  "advisory_condition_mix_lead": {
+    "category": "Economic Fragment",
+    "fragments": [
+      "ECONOMIC:lead"
+    ]
+  },
+  "advisory_condition_poor_lead": {
+    "category": "Economic Fragment",
+    "fragments": [
+      "ECONOMIC:lead",
+      "TURNING_AROUND:lead"
+    ]
+  },
+  "advisory_condition_tail1": {
+    "category": "Economic Fragment",
+    "fragments": [
+      "ECONOMIC:tail"
+    ]
+  },
+  "advisory_condition_tail2": {
+    "category": "Economic Fragment",
+    "fragments": [
+      "ECONOMIC:tail"
+    ]
+  },
+  "advisory_condition_tail3": {
+    "category": "Economic Fragment",
+    "fragments": [
+      "ECONOMIC:tail"
+    ]
+  },
+  "advisory_condition_tail4": {
+    "category": "Economic Fragment",
+    "fragments": [
+      "ECONOMIC:tail"
+    ]
+  },
+  "advisory_condition_tail5": {
+    "category": "Economic Fragment",
+    "fragments": [
+      "ECONOMIC:tail"
+    ]
+  },
+  "advisory_condition_tail6": {
+    "category": "Economic Fragment",
+    "fragments": [
+      "ECONOMIC:tail"
+    ]
+  },
+  "advisory_condition_tail7": {
+    "category": "Economic Fragment",
+    "fragments": [
+      "ECONOMIC:tail"
+    ]
+  },
+  "advisory_condition_tail8": {
+    "category": "Economic Fragment",
+    "fragments": [
+      "ECONOMIC:tail"
+    ]
+  },
+  "advisory_condition_tail9": {
+    "category": "Economic Fragment",
+    "fragments": [
+      "ECONOMIC:tail"
+    ]
+  },
+  "advisory_condition_turnaround_lead": {
+    "category": "Economic Fragment",
+    "fragments": [
+      "ECONOMIC:lead",
+      "TURNING_AROUND:lead"
+    ]
+  },
+  "advisory_creditrating_lead": {
+    "category": "CreditRating Fragment",
+    "fragments": [
+      "CREDITRATING:lead"
+    ]
+  },
+  "advisory_creditrating_tail_interestpaymentsok": {
+    "category": "CreditRating Fragment",
+    "fragments": [
+      "CREDITRATING:tail"
+    ]
+  },
+  "advisory_creditrating_tail_investflex": {
+    "category": "CreditRating Fragment",
+    "fragments": [
+      "CREDITRATING:tail"
+    ]
+  },
+  "advisory_creditrating_tail_nocrisis": {
+    "category": "CreditRating Fragment",
+    "fragments": [
+      "CREDITRATING:tail"
+    ]
+  },
+  "advisory_creditrating_tail_overdrawn": {
+    "category": "CreditRating Fragment",
+    "fragments": [
+      "CREDITRATING:tail"
+    ]
+  },
+  "advisory_creditrating_tail_shortoffunds": {
+    "category": "CreditRating Fragment",
+    "fragments": [
+      "CREDITRATING:tail"
+    ]
+  },
+  "advisory_gdp_flow_tail_boom_oil_rates": {
+    "category": "Candidate Template",
+    "fragments": [
+      "GLOBAL_ECONOMY:tail"
+    ],
+    "standalone": false
+  },
+  "advisory_gdp_flow_tail_cooling_off": {
+    "category": "Candidate Template",
+    "fragments": [
+      "GLOBAL_ECONOMY:tail"
+    ],
+    "standalone": false
+  },
+  "advisory_gdp_flow_tail_gdp_compare": {
+    "category": "Candidate Template",
+    "fragments": [
+      "GLOBAL_ECONOMY:tail"
+    ]
+  },
+  "advisory_gdp_flow_tail_headwinds": {
+    "category": "Candidate Template",
+    "fragments": [
+      "GLOBAL_ECONOMY:tail"
+    ]
+  },
+  "advisory_gdp_tail_growth_up": {
+    "category": "Candidate Template",
+    "fragments": [
+      "GLOBAL_ECONOMY:tail"
+    ]
+  },
+  "advisory_industry_growth_tail_faster": {
+    "category": "Industry Growth Fragment",
+    "fragments": [
+      "INDUSTRY_GROWTH:tail"
+    ]
+  },
+  "advisory_industry_growth_tail_negative": {
+    "category": "Industry Growth Fragment",
+    "fragments": [
+      "INDUSTRY_GROWTH:tail"
+    ]
+  },
+  "advisory_industry_growth_tail_slower": {
+    "category": "Industry Growth Fragment",
+    "fragments": [
+      "INDUSTRY_GROWTH:tail"
+    ]
+  },
+  "advisory_industry_lead_profitability": {
+    "category": "While Industry Fragment",
+    "fragments": [
+      "WHILE_INDUSTRY:lead"
+    ]
+  },
+  "advisory_industry_longterm_growthrate": {
+    "category": "Industry Growth Fragment",
+    "fragments": [
+      "INDUSTRY_GROWTH:lead"
+    ]
+  },
+  "advisory_industry_tail_excessive_competition": {
+    "category": "Candidate Template",
+    "fragments": [
+      "WORLD_ECONOMY_STEADY:tail"
+    ]
+  },
+  "advisory_industry_tail_growth_lag": {
+    "category": "Candidate Template",
+    "fragments": [
+      "WORLD_ECONOMY_STEADY:tail"
+    ]
+  },
+  "advisory_industry_tail_management_underperformance": {
+    "category": "Candidate Template",
+    "fragments": [
+      "WORLD_ECONOMY_STEADY:tail"
+    ]
+  },
+  "advisory_industry_tail_medical_benefit_cuts": {
+    "category": "Candidate Template",
+    "fragments": [
+      "WORLD_ECONOMY_HEALTHY:tail"
+    ]
+  },
+  "advisory_industry_tail_supply_demand": {
+    "category": "While Industry Fragment",
+    "fragments": [
+      "WHILE_INDUSTRY:tail"
+    ]
+  },
+  "advisory_industry_tail_supply_demand_imbalance": {
+    "category": "Candidate Template",
+    "fragments": [
+      "WORLD_ECONOMY_STEADY:tail"
+    ]
+  },
+  "advisory_lastyear_stockmarket_lead": {
+    "category": "Stock Year Fragment",
+    "fragments": [
+      "STOCKYEAR:lead"
+    ]
+  },
+  "advisory_lastyear_stockmarket_tail_profittaking": {
+    "category": "Stock Year Fragment",
+    "fragments": [
+      "STOCKYEAR:tail"
+    ]
+  },
+  "advisory_lastyear_stockmarket_tail_rally": {
+    "category": "Stock Year Fragment",
+    "fragments": [
+      "STOCKYEAR:tail"
+    ]
+  },
+  "advisory_lastyear_stockmarket_tail_rally_as": {
+    "category": "Stock Year Fragment",
+    "fragments": [
+      "STOCKYEAR:tail"
+    ]
+  },
+  "advisory_lastyear_stockmarket_tail_stockpickers": {
+    "category": "Stock Year Fragment",
+    "fragments": [
+      "STOCKYEAR:tail"
+    ]
+  },
+  "advisory_networth_decreased_recovering": {
+    "category": "Candidate Template"
+  },
+  "advisory_outlook_lead_acceptable_profit": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_bleak_ind_industry": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_continuing_hefty": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_decent_profit_levels": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_excellent_ind_industry": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_good_but_not_exceptional_profits_in_the_ind_industry": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_hefty_profits": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_high_capital_returns": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_high_levels": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_moderate_profitability_in_the_ind_industry": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_satisfactory": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_severe_pressure_profit": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_very_difficult": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_very_favorable": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_very_healthy_profits": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_very_high_rates_return": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_very_low_or_negative_profit_levels_in_the_ind_industry": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_widespread_losses_ind": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_middle_demand_outstrips_capacity": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:middle"
+    ]
+  },
+  "advisory_outlook_tail_analysts_expect_demand": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_but_demand_continues": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_but_demand_continues_2": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_but_demand_growing": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_but_overexpansion": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_capacity_cut": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_companies_laying_off": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_companies_reducing": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_companies_reducing_2": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_companies_shutting": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_current_lucrative": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_current_mediocre_level": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_demand_falling_but": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_demand_stagnant_but": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_dominant_expand": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_due_to_overcapacity": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_excess_capacity": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_excess_capacity_2": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_excess_capacity_3": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_excessive_brutal": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_excessive_brutal_2": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_excessive_competition": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_expand_marketshare": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_improving_current": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_improving_current_2": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_improving_current_3": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_improving_current_4": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_improving_current_5": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_improving_current_6": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_industry_demand": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_industry_giant": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_industry_giant_2": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_industry_giant_3": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_industry_giant_4": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_industry_leader": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_industry_leader_2": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_industry_leader_3": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_industry_leader_4": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_industry_leader_5": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_industry_leader_6": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_industry_leader_7": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_leader_strategy": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_leader_type_closing": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_marketshare_weakdemand": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_oversupply_finished": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_outlook_tail_supply_demand": {
+    "category": "Outlook Fragment",
+    "fragments": [
+      "OUTLOOK:tail"
+    ]
+  },
+  "advisory_profitmargin_lead": {
+    "category": "Profit Margin Fragment",
+    "fragments": [
+      "PROFITMARGIN:lead"
+    ]
+  },
+  "advisory_profitmargin_tail": {
+    "category": "Profit Margin Fragment",
+    "fragments": [
+      "PROFITMARGIN:tail"
+    ]
+  },
+  "advisory_world_economy_lead_although_steady": {
+    "category": "Candidate Template",
+    "fragments": [
+      "WORLD_ECONOMY_STEADY:lead"
+    ]
+  },
+  "advisory_world_economy_lead_moderate": {
+    "category": "Candidate Template",
+    "fragments": [
+      "WORLD_ECONOMY_MODERATE:lead"
+    ]
+  },
+  "advisory_world_economy_lead_rapid_robust": {
+    "category": "Candidate Template",
+    "fragments": [
+      "GLOBAL_ECONOMY:lead"
+    ]
+  },
+  "advisory_world_economy_lead_while_healthy": {
+    "category": "Candidate Template",
+    "fragments": [
+      "WORLD_ECONOMY_HEALTHY:lead"
+    ]
+  },
+  "advisory_world_economy_tail_improvement": {
+    "category": "Candidate Template",
+    "fragments": [
+      "WORLD_ECONOMY_MODERATE:tail"
+    ]
+  },
+  "advisory_world_economy_tail_recovery": {
+    "category": "Candidate Template",
+    "fragments": [
+      "WORLD_ECONOMY_MODERATE:tail"
+    ]
+  },
+  "advisory_world_economy_tail_sustainable": {
+    "category": "Candidate Template",
+    "fragments": [
+      "WORLD_ECONOMY_MODERATE:tail"
+    ]
+  },
+  "earningreport_earnings_lead_prior_quarter": {
+    "category": "Earnings Fragment",
+    "fragments": [
+      "EARNINGS:lead"
+    ]
+  },
+  "earningreport_earnings_tail_exceeded_projected": {
+    "category": "Earnings Fragment",
+    "fragments": [
+      "EARNINGS:tail"
+    ]
+  },
+  "earningreport_earnings_tail_vs_estimates": {
+    "category": "Earnings Fragment",
+    "fragments": [
+      "EARNINGS:tail"
+    ]
+  },
+  "earningreport_earnings_tail_vs_projected_loss": {
+    "category": "Earnings Fragment",
+    "fragments": [
+      "EARNINGS:tail"
+    ]
+  },
+  "earningreport_qtr_lead_loss": {
+    "category": "QuarterlyIncome Fragment",
+    "fragments": [
+      "QUARTERLYINCOME:lead"
+    ]
+  },
+  "earningreport_qtr_lead_pressrelease": {
+    "category": "QuarterlyIncome Fragment",
+    "fragments": [
+      "QUARTERLYINCOME:lead"
+    ]
+  },
+  "earningreport_qtr_lead_reported": {
+    "category": "QuarterlyIncome Fragment",
+    "fragments": [
+      "QUARTERLYINCOME:lead"
+    ]
+  },
+  "earningreport_qtr_tail_epscompare": {
+    "category": "QuarterlyIncome Fragment",
+    "fragments": [
+      "QUARTERLYINCOME:tail"
+    ]
+  },
+  "earningreport_qtr_tail_epscompare_bare": {
+    "category": "QuarterlyIncome Fragment",
+    "fragments": [
+      "QUARTERLYINCOME:tail"
+    ]
+  },
+  "HDR-0bfa1cf4": {
+    "category": "Table Header"
+  },
+  "HDR-1b9be659": {
+    "category": "Table Header"
+  },
+  "HDR-2365a426": {
+    "category": "Table Header"
+  },
+  "HDR-242e293b": {
+    "category": "Table Header"
+  },
+  "HDR-2987aca4": {
+    "category": "Table Header"
+  },
+  "HDR-39729c1d": {
+    "category": "Table Header"
+  },
+  "HDR-3f2f530b": {
+    "category": "Table Header"
+  },
+  "HDR-4666ee6f": {
+    "category": "Table Header"
+  },
+  "HDR-510336dd": {
+    "category": "Table Header"
+  },
+  "HDR-564ebe95": {
+    "category": "Table Header"
+  },
+  "HDR-56b74d10": {
+    "category": "Table Header"
+  },
+  "HDR-5b384bf9": {
+    "category": "Table Header"
+  },
+  "HDR-61bfc05f": {
+    "category": "Table Header"
+  },
+  "HDR-622e372b": {
+    "category": "Table Header"
+  },
+  "HDR-6714c03c": {
+    "category": "Table Header"
+  },
+  "HDR-6b525918": {
+    "category": "Table Header"
+  },
+  "HDR-6c81491f": {
+    "category": "Table Header"
+  },
+  "HDR-71dbe2f7": {
+    "category": "Table Header"
+  },
+  "HDR-72a1a30f": {
+    "category": "Table Header"
+  },
+  "HDR-72e985dd": {
+    "category": "Table Header"
+  },
+  "HDR-7a244b94": {
+    "category": "Table Header"
+  },
+  "HDR-7c4616f1": {
+    "category": "Table Header"
+  },
+  "HDR-7e9bad2c": {
+    "category": "Table Header"
+  },
+  "HDR-7f1c7c3d": {
+    "category": "Table Header"
+  },
+  "HDR-8599f5cc": {
+    "category": "Table Header"
+  },
+  "HDR-89106199": {
+    "category": "Table Header"
+  },
+  "HDR-89c69c69": {
+    "category": "Table Header"
+  },
+  "HDR-93cd5ee3": {
+    "category": "Table Header"
+  },
+  "HDR-9417eafc": {
+    "category": "Table Header"
+  },
+  "HDR-97a665c0": {
+    "category": "Table Header"
+  },
+  "HDR-98ee350c": {
+    "category": "Table Header"
+  },
+  "HDR-9cdd3fb3": {
+    "category": "Table Header"
+  },
+  "HDR-a23ac17c": {
+    "category": "Table Header"
+  },
+  "HDR-a4a870b6": {
+    "category": "Table Header"
+  },
+  "HDR-ad995140": {
+    "category": "Table Header"
+  },
+  "HDR-b2a2494f": {
+    "category": "Table Header"
+  },
+  "HDR-bc77ef0c": {
+    "category": "Table Header"
+  },
+  "HDR-bf388d4c": {
+    "category": "Table Header"
+  },
+  "HDR-bfe573d9": {
+    "category": "Table Header"
+  },
+  "HDR-c1ad9f33": {
+    "category": "Table Header"
+  },
+  "HDR-c328ca2c": {
+    "category": "Table Header"
+  },
+  "HDR-c3783a82": {
+    "category": "Table Header"
+  },
+  "HDR-c643e690": {
+    "category": "Table Header"
+  },
+  "HDR-c7dfb323": {
+    "category": "Table Header"
+  },
+  "HDR-c845201b": {
+    "category": "Table Header"
+  },
+  "HDR-c96bd589": {
+    "category": "Table Header"
+  },
+  "HDR-ccab4395": {
+    "category": "Table Header"
+  },
+  "HDR-cd85acdb": {
+    "category": "Table Header"
+  },
+  "HDR-cef34654": {
+    "category": "Table Header"
+  },
+  "HDR-d0b03143": {
+    "category": "Table Header"
+  },
+  "HDR-d5125129": {
+    "category": "Table Header"
+  },
+  "HDR-d6caee2e": {
+    "category": "Table Header"
+  },
+  "HDR-e1c60bc4": {
+    "category": "Table Header"
+  },
+  "HDR-e7fbdc35": {
+    "category": "Table Header"
+  },
+  "HDR-ea0c3d53": {
+    "category": "Table Header"
+  },
+  "HDR-eae4c5f4": {
+    "category": "Table Header"
+  },
+  "HDR-eafc13ab": {
+    "category": "Table Header"
+  },
+  "HDR-ecee394a": {
+    "category": "Table Header"
+  },
+  "HDR-f5163f18": {
+    "category": "Table Header"
+  },
+  "HDR-fb648053": {
+    "category": "Table Header"
+  },
+  "HDR-fbd831c8": {
+    "category": "Table Header"
+  },
+  "HDR-fd00ba07": {
+    "category": "Table Header"
+  },
+  "HDR-ff4caa40": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h01": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h02": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h03": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h04": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h05": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h06": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h07": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h08": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h09": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h10": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h11": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h12": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h13": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h14": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h15": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h16": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h17": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h18": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h19": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h20": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h21": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h22": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h23": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h24": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h25": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h26": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h27": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h28": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h29": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h30": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h31": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h32": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h33": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h34": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h35": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h36": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h37": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h38": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h39": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h40": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h41": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h42": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h43": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h44": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h45": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h46": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h47": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h48": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h49": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h50": {
+    "category": "Table Header"
+  },
+  "HDR-tbl-h51": {
+    "category": "Table Header"
+  },
+  "researchreport_subsidiary_lead": {
+    "category": "Candidate Template",
+    "fragments": [
+      "RESEARCH_SUBSIDIARY:lead"
+    ]
+  },
+  "researchreport_subsidiary_lead_owned": {
+    "category": "Candidate Template",
+    "fragments": [
+      "RESEARCH_SUBSIDIARY:lead"
+    ]
+  },
+  "researchreport_subsidiary_tail_contribution": {
+    "category": "Candidate Template",
+    "fragments": [
+      "RESEARCH_SUBSIDIARY:tail"
+    ]
+  },
+  "researchreport_subsidiary_tail_losses": {
+    "category": "Candidate Template",
+    "fragments": [
+      "RESEARCH_SUBSIDIARY:tail"
+    ]
+  },
+  "researchreport_subsidiary_tail_nothing": {
+    "category": "Candidate Template",
+    "fragments": [
+      "RESEARCH_SUBSIDIARY:tail"
+    ]
+  },
+  "researchreport_subsidiary_tail_offset": {
+    "category": "Candidate Template",
+    "fragments": [
+      "RESEARCH_SUBSIDIARY:tail"
+    ]
+  },
+  "advisory_outlook_lead_near": {
+    "category": "Candidate Template",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_near_lownegativeprofit": {
+    "category": "Candidate Template",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_outlook_lead_near_moderateprofit": {
+    "category": "Candidate Template",
+    "fragments": [
+      "OUTLOOK:lead"
+    ]
+  },
+  "advisory_cashflow_3month_positive_lead": {
+    "category": "UI Label",
+    "fragments": [
+      "CASHFLOW:lead"
+    ]
+  },
+  "advisory_cashflow_3month_positive_tail3": {
+    "category": "Candidate Template",
+    "fragments": [
+      "CASHFLOW:tail"
+    ]
+  },
+  "advisory_cashflow_3month_positive_tail4": {
+    "category": "UI Label",
+    "fragments": [
+      "CASHFLOW:tail"
+    ]
+  },
+  "advisory_cashflow_3month_positive_tail5": {
+    "category": "UI Label",
+    "fragments": [
+      "CASHFLOW:tail"
+    ]
+  },
+  "advisory_cashflow_3month_positive_tail1": {
+    "category": "Candidate Template",
+    "fragments": [
+      "CASHFLOW:tail"
+    ]
+  },
+  "advisory_cashflow_3month_positive_tail2": {
+    "category": "Candidate Template",
+    "fragments": [
+      "CASHFLOW:tail"
+    ]
+  },
+  "advisory_cashflow_3month_positive_tail4_1": {
+    "category": "Candidate Template",
+    "fragments": [
+      "CASHFLOW:tail"
+    ]
+  },
+  "researchreport_corpmanagement_lead1": {
+    "category": "Candidate Template",
+    "fragments": [
+      "MANAGEMENT:lead"
+    ]
+  },
+  "researchreport_corpmanagement_competent": {
+    "category": "UI Label",
+    "fragments": [
+      "MANAGEMENT:tail"
+    ]
+  },
+  "researchreport_corpmanagement_excellent": {
+    "category": "UI Label",
+    "fragments": [
+      "MANAGEMENT:tail"
+    ]
+  },
+  "researchreport_corpmanagement_mediocre": {
+    "category": "UI Label",
+    "fragments": [
+      "MANAGEMENT:tail"
+    ]
+  },
+  "researchreport_corpmanagement_failing": {
+    "category": "UI Label",
+    "fragments": [
+      "MANAGEMENT:tail"
+    ]
+  },
+  "researchreport_corpmanagement_poor": {
+    "category": "UI Label",
+    "fragments": [
+      "MANAGEMENT:tail"
+    ]
+  }
+}

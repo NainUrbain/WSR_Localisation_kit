@@ -1,0 +1,33 @@
+﻿Term,Definition
+영업이익,기업이 본업 (영업활동)에서 벌어들인 이익. 매출액에서 매출원가와 판매관리비를 뺀 값. 원문 operating income/earnings.
+순이익,모든 비용·세금을 제외하고 최종적으로 남는 이익. 원문 net income/net profit.
+시가총액,주가 × 발행주식수. 회사의 시장 가치를 나타내는 지표. 원문 market capitalization.
+공매도,주식을 빌려서 먼저 팔고 나중에 싸게 사서 갚아 차익을 노리는 거래 방식. 원문 short selling.
+배당수익률,주가 대비 연간 배당금의 비율. 원문 dividend yield.
+부채비율,자기자본 대비 부채 (빚)의 비율. 회사의 재무 건전성을 보는 지표. 원문 debt-to-equity ratio.
+EPS,주당순이익. 순이익을 발행주식수로 나눈 값. 원문 Earnings Per Share.
+PER,"주가수익비율. 주가를 주당순이익 (EPS)으로 나눈 값, 낮을수록 저평가로 해석. 원문 Price-to-Earnings Ratio."
+ROE,자기자본이익률. 자기자본 대비 순이익 비율로 경영 효율성을 나타냄. 원문 Return on Equity.
+자사주매입,회사가 시장에서 자기 회사 주식을 사들이는 것. 주가 부양 목적으로 흔히 사용. 원문 stock buyback.
+인수합병,한 회사가 다른 회사를 사들이거나 (인수) 두 회사가 합쳐지는 (합병) 것. 원문 M&A (mergers & acquisitions).
+지배주주,회사의 경영권을 실질적으로 행사할 수 있는 대주주. 원문 controlling shareholder.
+경상이익,영업이익에 영업외 손익 (이자수익 등)을 더한 이익. 원문 ordinary income.
+액면분할,주식 1주를 여러 주로 쪼개 주당 가격을 낮추는 것. 회사 가치 자체는 변하지 않음. 원문 stock split.
+요구불예금,은행에 맡겨두고 언제든 자유롭게 입출금할 수 있는 예금. 이자가 거의 없거나 매우 낮음. 원문 demand deposit.
+신용 등급,채권 발행자 (기업/은행)가 원금과 이자를 제때 갚을 능력이 얼마나 되는지 평가한 등급 (AAA ~ D 등). 등급이 낮을수록 부도 위험이 높고 이자율은 높아짐. 원문 credit rating.
+NAME OF LONG PARTY,"금리 스왑 롱 포지션, 고정된 금리로 현금을 받으며 금리 변동시 맞춰 금액을 지불"
+"(RECEIVES FIXED RATE,","금리 스왑 롱 포지션, 고정된 금리로 현금을 받으며 금리 변동시 맞춰 금액을 지불"
+PAYS VARIABLE RATE),"금리 스왑 롱 포지션, 고정된 금리로 현금을 받으며 금리 변동시 맞춰 금액을 지불"
+OF INT. FIXED,기준 금리 종류 (고정금리)
+NOTIONAL,명목원금 (백만 달러)
+PRINCIPAL,명목원금 (백만 달러)
+AMOUNT (MIL.),명목원금 (백만 달러)
+SHORT,매도측 (Short Party)
+BEGIN,계약 시작일
+END,계약 종료일
+TYPE,금리 종류
+PARTY,거래 상대방
+DATE,일자
+(SYMBOL),티커
+YR. QTR,연도/분기
+RATE,금리

@@ -1,0 +1,7 @@
+debug_output/
+patch_backup/
+__pycache__/
+*.pyc
+
+# Maintainer-only in-game capture data (the capture/ingest tools are not public)
+capture_inbox/

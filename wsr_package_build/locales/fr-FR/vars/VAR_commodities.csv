@@ -1,0 +1,11 @@
+﻿type,code,name_en,extra_en,target,gender,number,elision
+commodity,01,Oil,,,,,
+commodity,02,Gold,,,,,
+commodity,03,Silver,,,,,
+commodity,04,Wheat,,,,,
+commodity,05,Corn,,,,,
+commodity,06,Bitcoin,,,,,
+commodity,07,Ethereum,,,,,
+commodity,08,Stock Index,,,,,
+commodity,09,Crude Oil,,,,,
+commodity,99,the stock market index,,,,,

@@ -1,0 +1,4 @@
+# Store every file byte-for-byte. The installers verify SHA-256 hashes of the
+# runtime files (payload_manifest.json), and translation CSVs may contain
+# meaningful CRLF inside multi-line cells, so no end-of-line conversion.
+* -text

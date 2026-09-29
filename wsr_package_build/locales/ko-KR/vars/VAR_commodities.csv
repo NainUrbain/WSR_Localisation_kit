@@ -1,0 +1,11 @@
+﻿type,code,name_en,extra_en,target,gender,number,elision
+commodity,01,Oil,,원유,,,
+commodity,02,Gold,,금,,,
+commodity,03,Silver,,은,,,
+commodity,04,Wheat,,밀,,,
+commodity,05,Corn,,옥수수,,,
+commodity,06,Bitcoin,,비트코인,,,
+commodity,07,Ethereum,,이더리움,,,
+commodity,08,Stock Index,,주가지수,,,
+commodity,09,Crude Oil,,원유,,,
+commodity,99,the stock market index,,주가지수,,,

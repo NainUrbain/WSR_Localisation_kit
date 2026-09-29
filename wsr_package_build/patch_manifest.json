@@ -1,0 +1,321 @@
+{
+  "format": 1,
+  "mode": "developer",
+  "files": [
+    {
+      "path": "js/api.js",
+      "original_sha256": "fdccdb2ef0254134261099df987a0ad765d3ee5fb27868a153740267f2195d44",
+      "patched_sha256": "89652cece3a64406d3225287ce472dd1c7bc23b58a5f801577d52c38022170ae",
+      "hunks": [
+        {
+          "start_line": 1,
+          "delete_count": 0,
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "new_text": "import localeManager from './locale/localeManager.js';\r\nimport { applyTemplatesToGameState } from './template-apply.js';\r\nimport './dom-translate-hook.js';\r\n"
+        },
+        {
+          "start_line": 652,
+          "delete_count": 1,
+          "original_sha256": "996e6b1309f55860c96da02b771f4b48edf1c32b82f585862fdada1be997bf3a",
+          "new_text": "    const locale = localeManager.getCurrentLocale();\r\n    return `${cs.length}:${il}:${h}:${locale}`;\r\n"
+        },
+        {
+          "start_line": 1351,
+          "delete_count": 0,
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "new_text": "    applyTemplatesToGameState(newState);\r\n"
+        },
+        {
+          "start_line": 1846,
+          "delete_count": 0,
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "new_text": "if (typeof window !== 'undefined') window.__WSR_GAME_STORE__ = gameStore;\r\n\r\n"
+        }
+      ]
+    },
+    {
+      "path": "js/app.js",
+      "original_sha256": "2e4493bc88fb6076cb709a0c0b45ebc034ac6df876ae9554ce6a254f0ffdf513",
+      "patched_sha256": "1a1fc9c6eacb73df2cc7e4cd296db797bdcd6ce247b5601a21523ded7309be3a",
+      "hunks": [
+        {
+          "start_line": 464,
+          "delete_count": 1,
+          "original_sha256": "07c33e49cd76273f91b7874931142067bb1d76107ea451718fef5636da192d82",
+          "new_text": "    const isLoadGameModal = modalType === 3 && (modalTitle?.includes('Load Saved Game') || modalTitle?.includes('게임 불러오기'));\r\n"
+        }
+      ]
+    },
+    {
+      "path": "js/locale/localeManager.js",
+      "original_sha256": "39972ff9b12e9f6a450579f1606ed58df7e75ed3102ed3d99070a4ae2c4f97e2",
+      "patched_sha256": "f93061f5ba8b74f8653e4009b9d6b919edac50d93ac86181b696ef80118d6180",
+      "hunks": [
+        {
+          "start_line": 50,
+          "delete_count": 0,
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "new_text": "// WSR localization: register every locale the WSR pipeline built\r\n// (locale/wsr-locales.json, generated from locale_profiles.json). Its text\r\n// is translated by the WSR runtime, so the game's dictionary stays empty.\r\ntry {\r\n    const _fs = require('fs');\r\n    const _path = require('path');\r\n    for (const dir of [\r\n        _path.join(__dirname, 'locale'), _path.join(__dirname, 'js', 'locale'),\r\n        _path.join(__dirname, '..', 'locale'), _path.join(__dirname, '..', 'js', 'locale'),\r\n    ]) {\r\n        const file = _path.join(dir, 'wsr-locales.json');\r\n        if (!_fs.existsSync(file)) continue;\r\n        for (const [code, cfg] of Object.entries(JSON.parse(_fs.readFileSync(file, 'utf8')))) {\r\n            if (!LANGUAGE_OPTIONS[code]) {\r\n                LANGUAGE_OPTIONS[code] = { name: cfg.name || code, dictionary: {}, warning: cfg.warning || '' };\r\n            }\r\n        }\r\n        break;\r\n    }\r\n} catch (e) {\r\n    console.error('[WSR] failed to load wsr-locales.json', e);\r\n}\r\n\r\n"
+        }
+      ]
+    },
+    {
+      "path": "js/components/helpers.js",
+      "original_sha256": "1f65417091c2248eef788ef2ab5d8852efbd0ea77b15862525d306d8ddc44662",
+      "patched_sha256": "30ce24159af0fe523f33e944a6945712074cbc90d5d399a8f43dbb2137f03413",
+      "hunks": [
+        {
+          "start_line": 51,
+          "delete_count": 1,
+          "original_sha256": "25c91d561f1fefb18a26059e9938a79d11ec8b8e42b64e299ed2a56d7a102f4b",
+          "new_text": "    const match = line && line.match(/@([A-Z]+)(\\d*(\\|\\d+)*)[\\s-]*$/);\r\n"
+        },
+        {
+          "start_line": 220,
+          "delete_count": 1,
+          "original_sha256": "cf29e41236141310df4fb7f0d665a73207aa539196e6eb546ea305cff48f355e",
+          "new_text": "function splitTableColumns(text) {\r\n    return text.split(/\\s{2,}/).map(s => s.trim()).filter(s => s !== '');\r\n}\r\n\r\nfunction renderTableLines(cleanedLines, onLink) {\r\n    const rows = cleanedLines.map(({ text, link }) => {\r\n        const trimmed = text.trim();\r\n        if (trimmed === '') return { kind: 'blank' };\r\n        // Same rule-line pattern localization-capture.js's isTableRow() already\r\n        // uses — some reports separate dash groups per column\r\n        // (\"------- ---------  -------  ...\") rather than one unbroken run,\r\n        // so the whitespace must be allowed inside the match too.\r\n        if (/^[-=_\\s]{6,}$/.test(trimmed)) return { kind: 'rule', text };\r\n        return { kind: 'data', cells: splitTableColumns(text), link };\r\n    });\r\n\r\n    const counts = {};\r\n    for (const r of rows) {\r\n        if (r.kind !== 'data') continue;\r\n        counts[r.cells.length] = (counts[r.cells.length] || 0) + 1;\r\n    }\r\n    let cols = 1;\r\n    let best = 0;\r\n    for (const [n, count] of Object.entries(counts)) {\r\n        if (count > best) { best = count; cols = Number(n); }\r\n    }\r\n\r\n    return html`<table class=\"fixed-width\" style=\"border-collapse:collapse;\">\r\n        <tbody>\r\n        ${rows.map((r, i) => {\r\n            if (r.kind === 'blank') {\r\n                return html`<tr key=${i}><td colspan=${cols} style=\"height:1.2em;\"> </td></tr>`;\r\n            }\r\n            if (r.kind === 'rule') {\r\n                return html`<tr key=${i}><td colspan=${cols}>${r.text}</td></tr>`;\r\n            }\r\n            const isShort = r.cells.length < cols;\r\n            const isLong = r.cells.length > cols;\r\n            const displayCells = isLong\r\n                ? [{ text: r.cells.join('  '), span: cols }]\r\n                : (isShort\r\n                    ? Array(cols - r.cells.length).fill(0).map(() => ({ text: '' })).concat(r.cells.map(c => ({ text: c })))\r\n                    : r.cells.map(c => ({ text: c })));\r\n            const idFound = r.link?.id > 0 || (r.link?.id && r.link?.id.includes?.('|'));\r\n            const linkData = idFound && Number.isInteger(r.link?.id) && r.link.id > 0\r\n                ? (r.link.type === 'C' ? { 'data-company-id': r.link.id }\r\n                  : r.link.type === 'I' ? { 'data-industry-id': r.link.id }\r\n                  : {})\r\n                : {};\r\n            const handler = idFound ? () => onLink && onLink(r.link) : null;\r\n            const rowClass = idFound && onLink ? 'cursor-pointer text-blue-400 hover:bg-blue-700' : '';\r\n            return html`<tr key=${i} class=${rowClass} onClick=${handler} ...${linkData}>\r\n                ${displayCells.map((c, j) => html`<td key=${j} colspan=${c.span || 1} style=\"padding:0 0.8em 0 0; white-space:pre;\">${c.text}</td>`)}\r\n            </tr>`;\r\n        })}\r\n        </tbody>\r\n    </table>`;\r\n}\r\n\r\nexport function renderLines(lines, onLink, renderExtras, hyperlinkRegex, textMatch, extrasStartNumber, scopeActiveRef, extrasAlign, tableMode) {\r\n"
+        },
+        {
+          "start_line": 223,
+          "delete_count": 0,
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "new_text": "    const expandedLines = lines.flatMap(line => {\r\n        if (typeof line !== 'string') return [line];\r\n        const markers = [...line.matchAll(/@[A-Z]+\\d*(?:\\|\\d+)*/g)];\r\n        if (markers.length <= 1) return [line];\r\n        const segments = [];\r\n        let prevEnd = 0;\r\n        for (const m of markers) {\r\n            const segEnd = m.index + m[0].length;\r\n            segments.push(line.slice(prevEnd, segEnd).trim());\r\n            prevEnd = segEnd;\r\n        }\r\n        // Any leftover text after the LAST marker (not expected in\r\n        // practice, but keep it rather than silently drop it) rides along\r\n        // on the final segment.\r\n        const trailing = line.slice(prevEnd).trim();\r\n        if (trailing && segments.length) segments[segments.length - 1] += ' ' + trailing;\r\n        return segments;\r\n    });\r\n\r\n"
+        },
+        {
+          "start_line": 224,
+          "delete_count": 1,
+          "original_sha256": "b442771377aef73a0f6b70a8697373d1c3d6ec27b85d1a5b42ed8ea6b75ca091",
+          "new_text": "    const cleanedLines = expandedLines.map(line => {\r\n"
+        },
+        {
+          "start_line": 228,
+          "delete_count": 1,
+          "original_sha256": "5b41cfc7b7079dfce99c42ff868efe0522c656a821f00ce00da175f5575b2210",
+          "new_text": "        clean = link ? clean.replace(/@[A-Z]+\\d*(?:\\|\\d+)*[\\s-]*$/, '').trimEnd() : clean;\r\n"
+        },
+        {
+          "start_line": 233,
+          "delete_count": 0,
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "new_text": "\r\n    if (tableMode) {\r\n        return renderTableLines(cleanedLines, onLink);\r\n    }\r\n"
+        }
+      ]
+    },
+    {
+      "path": "js/components/IndustryView.js",
+      "original_sha256": "f37ac48a29bb82a1fc6e9d935d8c432e190a264d401e6f7527a9d5568700d819",
+      "patched_sha256": "bd1844c4dd158394687d5c345a0bcea8c6398f64673f04f69aca0b0d6927f59d",
+      "hunks": [
+        {
+          "start_line": 74,
+          "delete_count": 1,
+          "original_sha256": "23d3369fd65a497489a166efbf6ea70622f0d2206a4b97ce7d8e76fc9b00f97c",
+          "new_text": "                    <div class=\"flex justify-center items-center overflow-x-auto w-full\">\r\n"
+        },
+        {
+          "start_line": 113,
+          "delete_count": 1,
+          "original_sha256": "ec751ea73baa1b576305fc2efd202cc94082ad15071ed559f8babf76111f97a9",
+          "new_text": "                            <div class=\"flex justify-center items-center overflow-x-auto w-full\">\r\n"
+        },
+        {
+          "start_line": 131,
+          "delete_count": 1,
+          "original_sha256": "05e5de793295553428c14ad8aa5a5ff3997f787dfb95f0929e9799cc0e52af7c",
+          "new_text": "                                        <div class=\"flex justify-center items-center overflow-x-auto w-full\">\r\n"
+        },
+        {
+          "start_line": 136,
+          "delete_count": 1,
+          "original_sha256": "05e5de793295553428c14ad8aa5a5ff3997f787dfb95f0929e9799cc0e52af7c",
+          "new_text": "                                        <div class=\"flex justify-center items-center overflow-x-auto w-full\">\r\n"
+        },
+        {
+          "start_line": 141,
+          "delete_count": 1,
+          "original_sha256": "05e5de793295553428c14ad8aa5a5ff3997f787dfb95f0929e9799cc0e52af7c",
+          "new_text": "                                        <div class=\"flex justify-center items-center overflow-x-auto w-full\">\r\n"
+        },
+        {
+          "start_line": 146,
+          "delete_count": 1,
+          "original_sha256": "05e5de793295553428c14ad8aa5a5ff3997f787dfb95f0929e9799cc0e52af7c",
+          "new_text": "                                        <div class=\"flex justify-center items-center overflow-x-auto w-full\">\r\n"
+        },
+        {
+          "start_line": 158,
+          "delete_count": 1,
+          "original_sha256": "05e5de793295553428c14ad8aa5a5ff3997f787dfb95f0929e9799cc0e52af7c",
+          "new_text": "                                        <div class=\"flex justify-center items-center overflow-x-auto w-full\">\r\n"
+        },
+        {
+          "start_line": 163,
+          "delete_count": 1,
+          "original_sha256": "05e5de793295553428c14ad8aa5a5ff3997f787dfb95f0929e9799cc0e52af7c",
+          "new_text": "                                        <div class=\"flex justify-center items-center overflow-x-auto w-full\">\r\n"
+        },
+        {
+          "start_line": 168,
+          "delete_count": 1,
+          "original_sha256": "05e5de793295553428c14ad8aa5a5ff3997f787dfb95f0929e9799cc0e52af7c",
+          "new_text": "                                        <div class=\"flex justify-center items-center overflow-x-auto w-full\">\r\n"
+        },
+        {
+          "start_line": 173,
+          "delete_count": 1,
+          "original_sha256": "05e5de793295553428c14ad8aa5a5ff3997f787dfb95f0929e9799cc0e52af7c",
+          "new_text": "                                        <div class=\"flex justify-center items-center overflow-x-auto w-full\">\r\n"
+        },
+        {
+          "start_line": 178,
+          "delete_count": 1,
+          "original_sha256": "05e5de793295553428c14ad8aa5a5ff3997f787dfb95f0929e9799cc0e52af7c",
+          "new_text": "                                        <div class=\"flex justify-center items-center overflow-x-auto w-full\">\r\n"
+        },
+        {
+          "start_line": 183,
+          "delete_count": 1,
+          "original_sha256": "05e5de793295553428c14ad8aa5a5ff3997f787dfb95f0929e9799cc0e52af7c",
+          "new_text": "                                        <div class=\"flex justify-center items-center overflow-x-auto w-full\">\r\n"
+        },
+        {
+          "start_line": 192,
+          "delete_count": 1,
+          "original_sha256": "ec751ea73baa1b576305fc2efd202cc94082ad15071ed559f8babf76111f97a9",
+          "new_text": "                            <div class=\"flex justify-center items-center overflow-x-auto w-full\">\r\n"
+        }
+      ]
+    },
+    {
+      "path": "js/components/SectorHeatMapTab.js",
+      "original_sha256": "7078f76e5a899a62fe345e21a2c325f3a2d119b8fdf6172a22b9d288acd839e1",
+      "patched_sha256": "81ce311b36d1266748012279779d6572b4210d2725870cf9af1676a4523555e1",
+      "hunks": [
+        {
+          "start_line": 40,
+          "delete_count": 1,
+          "original_sha256": "cd54aa56b3e1bb78d601d760eb43e78c77fa33ba8c2eac7188b8a45d9615cf56",
+          "new_text": "                    <span style=\"pointer-events: none; font-size: 0.75em; display: inline-block; max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; vertical-align: middle;\">${getText(node)}</span>\r\n"
+        },
+        {
+          "start_line": 82,
+          "delete_count": 1,
+          "original_sha256": "211682fffac633ecfffce43f4f858b7cc290fc7d6def5817d115fbcb3eed5cc2",
+          "new_text": "        let frame = null;\r\n        const update = () => {\r\n            frame = null;\r\n            const width = tabElement.clientWidth, height = tabElement.clientHeight;\r\n            setTabSize(previous => previous.width === width && previous.height === height\r\n                ? previous : { width, height });\r\n        };\r\n"
+        },
+        {
+          "start_line": 84,
+          "delete_count": 1,
+          "original_sha256": "3d64aeac9f99f95c6b8b15baeab5d3d06485ac1f5f9f3f6a346bf76b123ae31c",
+          "new_text": "        const ro = new ResizeObserver(() => {\r\n            if (frame === null) frame = requestAnimationFrame(update);\r\n        });\r\n"
+        },
+        {
+          "start_line": 86,
+          "delete_count": 1,
+          "original_sha256": "3852f98662c7cb9c686689d531039d83177f8012e01393e52eea385101df033e",
+          "new_text": "        return () => {\r\n            ro.disconnect();\r\n            if (frame !== null) cancelAnimationFrame(frame);\r\n        };\r\n"
+        },
+        {
+          "start_line": 150,
+          "delete_count": 1,
+          "original_sha256": "f89bcbeb989f90e9ff28dda7164057fd22adb6789f2bf1f578675300d4bae3e2",
+          "new_text": "export default SectorHeatMapTab;\r\n"
+        }
+      ]
+    },
+    {
+      "path": "js/components/MarketHeatMapTab.js",
+      "original_sha256": "ecf9ee8c7f541f22f26e6fa8c4f37a22ca76a75dd59728ad118c40023ee21a47",
+      "patched_sha256": "5b7907945597b794ffde2866e9fa6f7568fbb9535a61c460ef23ba8d4dc465b1",
+      "hunks": [
+        {
+          "start_line": 183,
+          "delete_count": 1,
+          "original_sha256": "cd54aa56b3e1bb78d601d760eb43e78c77fa33ba8c2eac7188b8a45d9615cf56",
+          "new_text": "                    <span style=\"pointer-events: none; font-size: 0.75em; display: inline-block; max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; vertical-align: middle;\">${getText(node)}</span>\r\n"
+        },
+        {
+          "start_line": 225,
+          "delete_count": 1,
+          "original_sha256": "211682fffac633ecfffce43f4f858b7cc290fc7d6def5817d115fbcb3eed5cc2",
+          "new_text": "        let frame = null;\r\n        const update = () => {\r\n            frame = null;\r\n            const width = tabElement.clientWidth, height = tabElement.clientHeight;\r\n            setTabSize(previous => previous.width === width && previous.height === height\r\n                ? previous : { width, height });\r\n        };\r\n"
+        },
+        {
+          "start_line": 227,
+          "delete_count": 1,
+          "original_sha256": "3d64aeac9f99f95c6b8b15baeab5d3d06485ac1f5f9f3f6a346bf76b123ae31c",
+          "new_text": "        const ro = new ResizeObserver(() => {\r\n            if (frame === null) frame = requestAnimationFrame(update);\r\n        });\r\n"
+        },
+        {
+          "start_line": 229,
+          "delete_count": 1,
+          "original_sha256": "3852f98662c7cb9c686689d531039d83177f8012e01393e52eea385101df033e",
+          "new_text": "        return () => {\r\n            ro.disconnect();\r\n            if (frame !== null) cancelAnimationFrame(frame);\r\n        };\r\n"
+        },
+        {
+          "start_line": 288,
+          "delete_count": 1,
+          "original_sha256": "a87ca025fcaeb4efa3157f6a130d719d4b34963d0d709cbbe7d6359146cb5023",
+          "new_text": "export default MarketHeatMapTab;\r\n"
+        }
+      ]
+    },
+    {
+      "path": "js/components/PlayerView.js",
+      "original_sha256": "1e8b2416aa59c53d8571e3c97b86b44d839b4bcc94ddb5316fb64ddb04afcd56",
+      "patched_sha256": "d249ea6a09889bde92e816d468d0d2b2b904f0fcc6681bfe9a651d73db1013ca",
+      "hunks": [
+        {
+          "start_line": 128,
+          "delete_count": 1,
+          "original_sha256": "ebfdb83f027683472986216dccf1b376348a9ebb40442366f24ea207bfedf1a8",
+          "new_text": "                                    <div ref=${corpsExtrasRef} class=\"flex flex-col items-center overflow-auto min-h-0\">\r\n"
+        }
+      ]
+    },
+    {
+      "path": "js/components/assetPriceChartUtils.js",
+      "original_sha256": "58852c032168e97604ee925d5923fa7a44df1c5176a49f76cc7594a4f123aec0",
+      "patched_sha256": "13e89e845ae09e8cefe3751929a53101d1a9c651a0b4291fd7f1d776d67497d8",
+      "hunks": [
+        {
+          "start_line": 4,
+          "delete_count": 0,
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "new_text": "import localeManager from '../locale/localeManager.js';\r\n"
+        },
+        {
+          "start_line": 7,
+          "delete_count": 0,
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "new_text": "\r\nconst MONTHS_KO = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];\r\n"
+        },
+        {
+          "start_line": 225,
+          "delete_count": 0,
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "new_text": "    const isKo = localeManager.getCurrentLocale() === 'ko-KR';\r\n    const displayMonth = isKo ? MONTHS_KO[monthIndex] : monthName;\r\n"
+        },
+        {
+          "start_line": 232,
+          "delete_count": 1,
+          "original_sha256": "eec0d8f78d2251e4482c263ebe7ed1236e2c38ee81a87efb68724f344fcf458a",
+          "new_text": "        axisLabel: isJanuary ? year.toString() : displayMonth,\r\n"
+        },
+        {
+          "start_line": 234,
+          "delete_count": 1,
+          "original_sha256": "359312a832c4f7105d82e5314a401d559394025586d0705fbae8b58145cf0342",
+          "new_text": "        tooltipLabel: isKo ? `${displayMonth} '${year.toString().slice(-2)}` : `${monthName} '${year.toString().slice(-2)}`,\r\n"
+        },
+        {
+          "start_line": 236,
+          "delete_count": 1,
+          "original_sha256": "676cb5a2267b99ff648ccd1db76606644a9af31159e72df5f3667ff0dd23f6a5",
+          "new_text": "        shortLabel: isKo ? `${displayMonth} '${year.toString().slice(-2)}` : `${monthName} '${year.toString().slice(-2)}`\r\n"
+        }
+      ]
+    }
+  ]
+}
