@@ -68,15 +68,15 @@ Keys are shared by every language and should be treated as stable identifiers.
 Their naming convention and the generated fallback identifiers are documented
 in [KEY_NAMING.md](wsr_package_build/KEY_NAMING.md).
 
-## Building installers
+## Building releases
 
 For the Steam Workshop overlay builder, content-folder layout, bundled preview,
 and loader integration test, see [Workshop build and upload](dist_build/WORKSHOP.md).
 Workshop output includes nine locally generated modified game UI files and must
 remain in the ignored release directory, outside source control.
 
-Requires PyInstaller (`python -m pip install pyinstaller`). Generated outputs
-are excluded from Git.
+Only the translator kit's developer EXE requires PyInstaller. Player Workshop
+builds use the Python standard library. Generated outputs are excluded from Git.
 
 ```powershell
 $locale = "LOCALE_CODE"
@@ -84,15 +84,17 @@ $locale = "LOCALE_CODE"
 # Translator kit: every locale's CSVs, the pipeline and the developer overlay
 .\dist_build\1_build_translator.bat
 
-# Player installer: one locale, stripped runtime
+# Player Workshop content: one locale, stripped runtime
 .\dist_build\2_build_player_release.bat $locale
 ```
 
 The translator kit is written to `dist_build\dist\WSR_KR_translator\` and
 contains `build_player.bat` so translators without this repository can
-package their own player installer. The player builder writes
-`dist_build\dist\WSR_<locale>_user.exe` (`WSR_KR_user.exe` for `ko-KR`). The
-installer source is `dist_build/install_patch_dist.py`.
+package their own Workshop release. The player builder writes
+`dist_build\dist\workshop_<locale>\content` (or `dist/` in a standalone kit).
+Optional arguments after the locale are the game directory and a new output
+directory. It does not build an EXE. `install_patch_dist.py` remains available
+for the historical manual installer workflow.
 
 ## Updating for a new game version
 
@@ -126,7 +128,7 @@ files, these added files are no longer loaded and can be left or deleted:
 ```text
 ├─ README.md, README.ko.md (Korean player guide), MAINTAINING.md
 ├─ LICENSE (code), LICENSE-DATA.md (translations)
-├─ dist_build/          translator/player installer builders and the player installer
+├─ dist_build/          translator kit and player Workshop builders; legacy installer
 ├─ tools/               make_line_patches.py (patch deltas)
 └─ wsr_package_build/   pipeline, CSVs, runtime engine, developer installer, tests
 ```

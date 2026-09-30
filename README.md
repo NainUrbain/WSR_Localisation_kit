@@ -7,7 +7,7 @@
 
 WSR_Localisation_kit is a multilingual localization framework for Wall Street Raider that grew out of the WSR_KR Korean translation patch. It translates the interface, reports, news, help text, and the sentences the game generates at runtime.
 
-> The source repository and installer releases do not include complete game source files. The optional Workshop builder produces nine modified UI files locally from a legitimate game installation; these retain their original rights. No game executable is included.
+> The source repository does not include complete game source files. The player Workshop builder produces nine modified UI files locally from a legitimate game installation; these retain their original rights. No game executable is included.
 
 ## Language status
 
@@ -30,7 +30,7 @@ The automated tests (`python -m unittest discover -s wsr_package_build/tests` an
 
 ## Getting started
 
-Translators and maintainers need Python 3.10 or later to run the localization pipeline, which otherwise uses only the standard library. In-game testing also requires a Windows Steam installation of Wall Street Raider matching the version in the current patch manifest. Creating installer executables requires PyInstaller. Players using a prebuilt player installer do not need Python.
+Translators and maintainers need Python 3.10 or later and a supported Windows Steam installation of Wall Street Raider. Player releases are Workshop folders built with the Python standard library; subscribers do not need Python. PyInstaller is only needed for the translator kit's developer installer.
 
 **1. Choose or add a language.** Set `$locale` to a code registered in `wsr_package_build/locale_profiles.json` and use it throughout the commands below:
 
@@ -56,15 +56,15 @@ python .\wsr_package_build\pipeline.py install --locale $locale
 
 The [translation guide](wsr_package_build/MULTILINGUAL.md) explains the template syntax, grammar selectors, word tables, report headers, and the in-game editor.
 
-**4. Release to players.** With PyInstaller installed (`python -m pip install pyinstaller`):
+**4. Release to players.** Build a Steam Workshop content folder:
 
 ```powershell
 .\dist_build\2_build_player_release.bat $locale
 ```
 
-For most locales this creates `dist_build\dist\WSR_<locale>_user.exe`; the Korean build keeps the historical name `WSR_KR_user.exe`. It is a stand-alone installer with only that language and without the developer overlay. Players close the game, run the installer, and select the language in the game's settings. The installer is unsigned, so Windows SmartScreen may warn; tell players to choose **More info → Run anyway** only for a file downloaded from your release page.
+This creates `dist_build\dist\workshop_<locale>\content`, containing that language without the developer overlay. Select the **content** folder in WSR Mod Uploader. Players subscribe, restart the game, and select the language in Settings. The game path is auto-detected; pass it as the second argument if needed. A third argument selects a new output directory for later builds. Existing output folders are preserved.
 
-Building installers and updating the patch for a new game version are covered in [MAINTAINING.md](MAINTAINING.md).
+Building releases and updating the patch for a new game version are covered in [MAINTAINING.md](MAINTAINING.md).
 
 ## How the patch works
 

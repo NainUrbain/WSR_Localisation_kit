@@ -8,11 +8,18 @@ WSR의 `workshopLoader.js`와 `workshopProtocol.js`에서 확인한 규격은
 ## 빌드
 
 ```powershell
-python dist_build/build_workshop_release.py "E:\SteamLibrary\steamapps\common\Wall Street Raider"
-powershell -NoProfile -ExecutionPolicy Bypass -File dist_build/create_workshop_preview.ps1
+.\dist_build\2_build_player_release.bat ko-KR
+powershell -NoProfile -ExecutionPolicy Bypass -File dist_build/create_workshop_preview.ps1 -Output dist_build/dist/workshop_ko-KR/preview.png
 ```
 
-출력: `dist_build/dist/workshop_ko/`. 이미 존재하면 다른 `--output`을 지정합니다.
+기본 배포 명령은 EXE 대신 워크샵 폴더를 출력합니다. Python 3.10 이상이 필요하며
+PyInstaller는 필요하지 않습니다. 게임 경로를 생략하면 설치본을 자동 탐색합니다.
+직접 지정하려면 두 번째 인수에 게임 경로, 세 번째 인수에 새 출력 폴더를 넣습니다.
+번역 키트에서는 `build_player.bat ko-KR`로 같은 작업을 수행합니다.
+
+출력: `dist_build/dist/workshop_ko-KR/` (번역 키트는 `dist/workshop_ko-KR/`).
+이미 존재하면 세 번째 인수에 새 폴더를 지정합니다. Python 빌더를 직접 사용할 때는
+`--output`을 지정하며, `--locale`로 언어를 선택할 수 있습니다.
 기존 게시물 ID가 저장된 폴더를 실수로 덮어쓰지 않도록 자동 삭제하지 않습니다.
 
 빌더는 게임 설치 폴더를 수정하지 않습니다. 지원 원본의 SHA-256을 검사하고,
@@ -28,7 +35,7 @@ JSON 데이터는 JS 모듈에도 묶어 디스크 직접 읽기 대신 워크�
 자동 검증 (실제 설치 파일은 수정하지 않고 임시 폴더에서 모드 로딩을 검사):
 
 ```powershell
-node --experimental-vm-modules wsr_package_build/tests/workshop.test.cjs dist_build/dist/workshop_ko "E:\SteamLibrary\steamapps\common\Wall Street Raider\resources\app"
+node --experimental-vm-modules wsr_package_build/tests/workshop.test.cjs dist_build/dist/workshop_ko-KR "E:\SteamLibrary\steamapps\common\Wall Street Raider\resources\app"
 ```
 
 게임 모듈 연결, 디스크 JSON 없이 한국어 번역 데이터 로딩, 실제 워크샵 로더와

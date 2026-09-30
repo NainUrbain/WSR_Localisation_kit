@@ -1,4 +1,4 @@
-param([string]$Output = "$PSScriptRoot\dist\workshop_ko\preview.png")
+param([string]$Output = "$PSScriptRoot\dist\workshop_ko-KR\preview.png")
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
 $bitmap = New-Object System.Drawing.Bitmap 640,640

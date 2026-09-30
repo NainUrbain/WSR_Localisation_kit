@@ -1,7 +1,7 @@
 # Multilingual translation guide
 
 Use Python 3.10 or newer. The pipeline uses only the Python standard library.
-Creating an EXE also needs PyInstaller (`python -m pip install pyinstaller`).
+Player releases are Steam Workshop folders and do not need PyInstaller.
 Node is needed only for the automated JavaScript tests.
 
 ## Translate an existing language
@@ -25,15 +25,17 @@ Select the same language in the game. Leave a target blank for English
 fallback, and keep keys and source cells unchanged during ordinary
 translation.
 
-In the extracted translator kit, `build_player.bat $locale` creates the player
-EXE. In the repository use `dist_build/2_build_player_release.bat $locale`.
-Player packages contain only the selected locale's data and its runtime
-dependencies. They do not contain the editor.
+In the extracted translator kit, `build_player.bat $locale` creates
+`dist/workshop_<locale>/content`. In the repository use
+`dist_build/2_build_player_release.bat $locale`; output is under `dist_build/dist/`.
+Pass the game directory as the optional second argument and a new output directory
+as the third. Select **content** in WSR Mod Uploader. The package contains the
+selected locale, its runtime, and nine modified game UI files; it has no editor.
 
 ## In-game editor
 
 The developer overlay is part of the developer build and the translator kit,
-not of player installers.
+not of player Workshop releases.
 
 - **`Shift+Backtick`** opens or closes the overlay: translation coverage, key
   information, CSV search and editing, and diagnostics. Set its CSV folder to
@@ -53,8 +55,8 @@ not of player installers.
 - **`Ctrl+Shift+D`** writes a diagnostic dump of the game-state field index to
   `debug_output/`. It does not change the simulation.
 
-Live edits are a preview. Run `install` so they survive a restart, and before
-packaging a player installer.
+Live edits are a preview. Run `install` so they survive a restart during local
+testing. Player Workshop builds regenerate their data directly from the CSVs.
 
 ## Template syntax
 

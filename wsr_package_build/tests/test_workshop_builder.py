@@ -5,7 +5,8 @@ import sys
 import tempfile
 import unittest
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "dist_build"))
+KIT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(KIT.parent / "dist_build" if (KIT.parent / "dist_build").is_dir() else KIT / "release_tools"))
 from build_workshop_release import build, original_bytes, replace_function, replace_once
 
 

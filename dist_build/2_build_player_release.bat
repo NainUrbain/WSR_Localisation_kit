@@ -1,18 +1,24 @@
 @echo off
 setlocal
-rem Usage: this_file.bat [locale]   (default ko-KR)
-set "PYTHON=python"
-set "SOURCE=%~dp0..\wsr_package_build"
-set "STAGE=%~dp0user_release"
+rem Usage: this_file.bat [locale] [game directory] [new output directory]
+if not defined PYTHON for %%P in ("%USERPROFILE%\.local\bin\python3*.exe") do if exist "%%~fP" set "PYTHON=%%~fP"
+if not defined PYTHON (
+    for %%P in (python.exe python3.exe py.exe) do (
+        if not defined PYTHON for /f "delims=" %%F in ('where %%P 2^>nul') do set "PYTHON=%%F"
+    )
+)
+if not defined PYTHON (
+    echo Python 3.10 or newer is required. Install Python or set PYTHON to its executable path.
+    exit /b 1
+)
 set "LOCALE=%~1"
 if "%LOCALE%"=="" set "LOCALE=ko-KR"
-set "NAME=WSR_%LOCALE%_user"
-if /I "%LOCALE%"=="ko-KR" set "NAME=WSR_KR_user"
-
-"%PYTHON%" "%~dp0build_user_release.py" --source "%SOURCE%" --output "%STAGE%" --locale "%LOCALE%"
+set "OUTPUT=%~3"
+if "%OUTPUT%"=="" set "OUTPUT=%~dp0dist\workshop_%LOCALE%"
+if "%~2"=="" (
+    "%PYTHON%" "%~dp0build_workshop_release.py" --locale "%LOCALE%" --output "%OUTPUT%"
+) else (
+    "%PYTHON%" "%~dp0build_workshop_release.py" "%~2" --locale "%LOCALE%" --output "%OUTPUT%"
+)
 if errorlevel 1 exit /b 1
-
-"%PYTHON%" -m PyInstaller --onefile --name "%NAME%" --distpath "%~dp0dist" --workpath "%~dp0build" --specpath "%~dp0build" --add-data "%STAGE%\game_files;game_files" --add-data "%STAGE%\payload_manifest.json;." --add-data "%~dp0patch_manifest.json;." --console --noconfirm "%~dp0install_patch_dist.py"
-if errorlevel 1 exit /b 1
-
-echo Done: dist\%NAME%.exe
+echo Upload this folder: %OUTPUT%\content

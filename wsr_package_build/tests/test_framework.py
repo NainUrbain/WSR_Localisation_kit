@@ -5,6 +5,7 @@ Node is required for runtime and staged player checks; no third-party Python
 dependencies are needed. The full repository is required for release tests.
 """
 import csv
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -240,12 +241,37 @@ class DisposableKit(unittest.TestCase):
         output = self.root / "translator"
         self.run_python(builder, "--source", self.kit, "--output", output)
         for relative in ("source_data/WSR_translation_all.csv", "MULTILINGUAL.md",
-                         "build_player.bat", "release_tools/build_user_release.py"):
+                         "build_player.bat", "release_tools/build_user_release.py",
+                         "release_tools/build_workshop_release.py", "release_tools/WORKSHOP.md"):
             self.assertTrue((output / relative).is_file(), relative)
         stage = self.root / "player-from-kit"
         self.run_python(output / "release_tools/build_user_release.py", "--source", output,
                         "--output", stage, "--locale", "fr-FR")
         self.runtime(stage / "game_files/js")
+
+        # A minimal supported game fixture exercises the standalone Workshop
+        # entry point without relying on the maintainer's installed game.
+        app = self.root / "fixture-game"
+        locale_file = app / "js/locale/localeManager.js"
+        locale_file.parent.mkdir(parents=True)
+        raw = ("const LANGUAGE_OPTIONS = {};\n"
+               "// WSR localization: register every locale\n"
+               "// Initialize translator instances\n").encode()
+        locale_file.write_bytes(raw)
+        digest = hashlib.sha256(raw).hexdigest()
+        (output / "release_tools/patch_manifest.json").write_text(json.dumps({
+            "format": 1, "mode": "player", "files": [{
+                "path": "js/locale/localeManager.js", "original_sha256": digest,
+                "patched_sha256": digest, "hunks": []}]}), encoding="utf-8")
+        workshop = self.root / "workshop-from-kit"
+        self.run_python(output / "release_tools/build_workshop_release.py", app,
+                        "--output", workshop, "--locale", "fr-FR")
+        self.assertTrue((workshop / "content/js/wsr-workshop-data.js").is_file())
+        self.assertTrue((workshop / "description.txt").is_file())
+        self.assertFalse((workshop / "description.ko.txt").exists())
+        self.assertFalse(list(workshop.rglob("*.exe")))
+        self.assertEqual(locale_file.read_bytes(), raw)
+        self.runtime(workshop / "content/js")
 
 
 if __name__ == "__main__":

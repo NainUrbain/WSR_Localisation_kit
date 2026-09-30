@@ -14,6 +14,20 @@ import tempfile
 from patcher_core import apply_entry, load_manifest, sha256
 
 ROOT = Path(__file__).resolve().parents[1]
+TOOLS = Path(__file__).resolve().parent
+SOURCE = ROOT if (ROOT / "locale_profiles.json").is_file() else ROOT / "wsr_package_build"
+
+
+def find_game():
+    candidates = []
+    for drive in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+        for library in ("SteamLibrary", "Steam", "Program Files (x86)/Steam"):
+            app = Path(f"{drive}:/") / library / "steamapps/common/Wall Street Raider/resources/app"
+            if (app / "package.json").is_file() and (app / "workshopLoader.js").is_file():
+                candidates.append(app)
+    if len(candidates) != 1:
+        raise ValueError("Specify the game installation path; could not identify one Workshop-capable installation")
+    return candidates[0]
 
 
 def replace_once(text, old, new):
@@ -95,7 +109,7 @@ def original_bytes(app, entry):
     raise ValueError(f"No supported original for {entry['path']}; supply a clean supported game or verified backup")
 
 
-def build(app, output, locale):
+def build(app, output, locale, source=SOURCE):
     app, output = Path(app).resolve(), Path(output).resolve()
     if (app / "resources/app").is_dir():
         app = app / "resources/app"
@@ -103,15 +117,15 @@ def build(app, output, locale):
         raise ValueError("Output must not overlap the game")
     if output.exists():
         raise ValueError("Output already exists; choose a new output folder (preserves published item IDs)")
-    patches = load_manifest(ROOT / "dist_build/patch_manifest.json")
+    patches = load_manifest(TOOLS / "patch_manifest.json")
     originals = [(entry, *original_bytes(app, entry)) for entry in patches["files"]]
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".workshop-build-", dir=output.parent) as temp:
         temp = Path(temp).resolve()
         assert temp.is_relative_to(output.parent)  # cleanup stays inside staging parent
         player, release = temp / "player", temp / "release"
-        subprocess.run([sys.executable, str(ROOT / "dist_build/build_user_release.py"),
-                        "--locale", locale, "--output", str(player)], check=True)
+        subprocess.run([sys.executable, str(TOOLS / "build_user_release.py"),
+                        "--source", str(source), "--locale", locale, "--output", str(player)], check=True)
         content = release / "content"
         shutil.copytree(player / "game_files", content)
         for entry, raw, _ in originals:
@@ -137,8 +151,17 @@ def build(app, output, locale):
             "game_version": json.loads((app / "package.json").read_text(encoding="utf-8"))["version"]
                 if (app / "package.json").exists() else "unknown",
         }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        shutil.copy2(ROOT / "dist_build/WORKSHOP.md", release / "UPLOAD.md")
-        shutil.copy2(ROOT / "dist_build/workshop-description.ko.txt", release / "description.ko.txt")
+        shutil.copy2(TOOLS / "WORKSHOP.md", release / "UPLOAD.md")
+        if locale == "ko-KR":
+            shutil.copy2(TOOLS / "workshop-description.ko.txt", release / "description.ko.txt")
+        else:
+            (release / "description.txt").write_text(
+                f"Wall Street Raider localisation: {locale}\n\n"
+                "Subscribe, restart the game, then select the language in Settings.\n"
+                "Requires a compatible game version. Other UI mods may conflict.\n"
+                "Review translation coverage before publishing.\n"
+                "Nain Urbain 이영찬 and contributors\n"
+                "https://github.com/NainUrbain/WSR_Localisation_kit\n", encoding="utf-8")
         # Copy out so Windows inherits the workspace ACL, not tempfile's
         # deliberately private ACL (which a rename would retain).
         shutil.copytree(release, output)
@@ -147,11 +170,13 @@ def build(app, output, locale):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("game", help="Game directory or resources/app (read only)")
+    parser.add_argument("game", nargs="?", help="Game directory or resources/app (read only); auto-detect if omitted")
     parser.add_argument("--locale", default="ko-KR")
-    parser.add_argument("--output", type=Path, default=ROOT / "dist_build/dist/workshop_ko")
+    parser.add_argument("--source", type=Path, default=SOURCE)
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    build(args.game, args.output, args.locale)
+    dist = (TOOLS if TOOLS.name == "dist_build" else ROOT) / "dist"
+    build(args.game or find_game(), args.output or dist / f"workshop_{args.locale}", args.locale, args.source)
 
 
 if __name__ == "__main__":

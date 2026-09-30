@@ -81,11 +81,13 @@ developer_readme = source / "DEVELOPER_BUILD.md"
 if developer_readme.is_file():
     shutil.copy2(developer_readme, output / "README.md")
 
-# The editable kit can produce its own player installer without downloading
+# The editable kit can produce its own Workshop release without downloading
 # another repository. These files use the same builder as the maintainer.
 release_tools = output / "release_tools"
 release_tools.mkdir()
-for filename in ("build_user_release.py", "install_patch_dist.py", "patcher_core.py", "patch_manifest.json"):
+for filename in ("build_user_release.py", "build_workshop_release.py", "install_patch_dist.py",
+                 "patcher_core.py", "patch_manifest.json", "WORKSHOP.md",
+                 "workshop-description.ko.txt", "create_workshop_preview.ps1"):
     shutil.copy2(Path(__file__).parent / filename, release_tools / filename)
 shutil.copy2(Path(__file__).parent / "build_player_from_kit.bat", output / "build_player.bat")
 

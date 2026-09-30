@@ -26,9 +26,14 @@ python .\pipeline.py build --locale $locale
 python .\pipeline.py install --locale $locale
 python .\pipeline.py install "D:\SteamLibrary\steamapps\common\Wall Street Raider\resources\app" --locale $locale
 
-# Package a player installer for one language (needs PyInstaller)
+# Package a Steam Workshop content folder for one language (no PyInstaller)
 .\build_player.bat $locale
 ```
+
+The player output is `dist/workshop_<locale>/content`. Select that folder in
+WSR Mod Uploader. The optional second argument is the game installation path;
+the third is a new output directory. See `release_tools/WORKSHOP.md` in the kit
+or `../dist_build/WORKSHOP.md` in the source repository for upload instructions.
 
 Run `install` whenever the game should load your current translations after a
 restart. In-game edits made with the overlay are applied live, but only
