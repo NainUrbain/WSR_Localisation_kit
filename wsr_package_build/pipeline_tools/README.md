@@ -19,7 +19,7 @@ catalog. See `../MULTILINGUAL.md` for the complete workflow and syntax.
 - `translation_csvs.py`: reads/writes the split canonical CSVs and derives
   each row's category (`classify()`, `key_structure.json`)
 - `fix_csv_header.py`: header position and BOM check for one locale folder
-- `manage_keys.py`: key rename history (`key_migrations.csv`) and validation
+- `manage_keys.py`: shared-key and historical migration validation
 
 See [key naming and sorting](../KEY_NAMING.md) for the shared naming convention
 and the command that sorts both the source catalog and every locale.

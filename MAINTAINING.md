@@ -1,4 +1,4 @@
-# Maintaining WSR_KR
+# Maintaining WSR_Localisation_kit
 
 Reference for maintainers: pipeline commands, data layout, installers, game
 updates, and keys. Translators only need the
@@ -15,7 +15,6 @@ and behaves the same for every language.
 | `pipeline.py build` | The same checks, then regenerates the runtime data **inside the repository** (`game_files/js/locale/<prefix>-*.json`, `wsr-locales.json`, the language registry, `payload_manifest.json`) |
 | `pipeline.py install [GAME_APP_DIR]` | `build`, then copies the runtime into the game and applies the patch (auto-detects Steam without a directory) |
 | `pipeline.py init-locale` | Creates or refreshes `locales/<locale>/` from the English catalog, keeping translations |
-| `pipeline.py rename-key OLD NEW` | Renames a shared key everywhere (see [Keys](#keys)) |
 
 `python .\wsr_package_build\pipeline.py` without a command runs `build`.
 
@@ -34,22 +33,19 @@ node --experimental-vm-modules wsr_package_build/tests/runtime.test.cjs
 
 They use disposable copies and never install into the real game. They cover
 source independence, preserved work, stale-source fallback, regional profiles,
-installer safety, key renames and layout, and representative sentences for
+installer safety, key and layout validation, and representative sentences for
 each language's rules. Finish a release with in-game checks of fonts,
 wrapping, reports and language switching.
 
 ## Data layout
 
-Inside `wsr_package_build/`:
+Translator-facing locale files are documented in
+[`DEVELOPER_BUILD.md`](wsr_package_build/DEVELOPER_BUILD.md#what-to-translate).
+The remaining maintainer-facing layout inside `wsr_package_build/` is:
 
 - `source_data/WSR_translation_*.csv`: the English catalog (`Key`, `Source (EN)`, `Context`), shared by every language
-- `locales/<locale>/WSR_translation_*.csv`: translations keyed to the catalog, one file per category (routed by key prefix, `split_map.json`)
-- `locales/<locale>/vars/VAR_*.csv`: the locale's word tables (entity names, token values, sectors, label prefixes)
-- `locales/<locale>/glossary.csv`: term tooltips
 - `reference_data/`: the English side of every `vars/` table, the game's glossary and report header tagging (`header_lines.csv`)
-- `locale_profiles.json`: registered locales
 - `key_structure.json`: rows the runtime assembles from pieces (fragment families, table headers)
-- `key_migrations.csv`: history of renamed keys; `key_overrides.json`: manual text → key assignments for the overlay
 - `game_files/js/`: the shared runtime engine (`template-translate.js`, `template-apply.js`, `dom-translate-hook.js`), language rules (`lang-*.js`) and the developer overlay
 - `game_files/js/locale/`: generated runtime data — do not edit by hand
 - `pipeline_tools/`: checks, runtime generation and key management
@@ -68,13 +64,9 @@ Developer installs write debug dumps to `wsr_package_build/debug_output/`.
 
 ## Keys
 
-Keys are shared by every language. Rename one with
-`python .\wsr_package_build\pipeline.py rename-key OLD NEW`, or by editing the
-key field in the in-game editor, which runs the same command. It records the
-rename in `key_migrations.csv`, updates the catalog, every locale, sidecar
-references and generated data, and moves the row to the category file of its
-new prefix. Naming rules are in
-[KEY_NAMING.md](wsr_package_build/KEY_NAMING.md).
+Keys are shared by every language and should be treated as stable identifiers.
+Their naming convention and the generated fallback identifiers are documented
+in [KEY_NAMING.md](wsr_package_build/KEY_NAMING.md).
 
 ## Building installers
 
@@ -82,11 +74,13 @@ Requires PyInstaller (`python -m pip install pyinstaller`). Generated outputs
 are excluded from Git.
 
 ```powershell
+$locale = "LOCALE_CODE"
+
 # Translator kit: every locale's CSVs, the pipeline and the developer overlay
 .\dist_build\1_build_translator.bat
 
-# Player installer: one locale, stripped runtime (default ko-KR)
-.\dist_build\2_build_player_release.bat fr-FR
+# Player installer: one locale, stripped runtime
+.\dist_build\2_build_player_release.bat $locale
 ```
 
 The translator kit is written to `dist_build\dist\WSR_KR_translator\` and

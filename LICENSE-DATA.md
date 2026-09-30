@@ -30,7 +30,7 @@ You may copy, adapt and share the translations, including making a
 translation into another language based on this project, as long as you:
 
 1. **credit** "Nain Urbain 이영찬" and link to this project
-   (https://github.com/sorita1/WSR_Localisation_kit), and
+   (https://github.com/NainUrbain/WSR_Localisation_kit), and
 2. **do not use them commercially**. The patch is distributed free of charge
    with the permission of the creator of Wall Street Raider, and derived
    translations must remain free as well. Commercial use requires a separate

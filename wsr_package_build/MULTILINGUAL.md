@@ -10,10 +10,11 @@ Run these commands from the kit directory (`wsr_package_build/` in the
 repository):
 
 ```powershell
-python pipeline.py init-locale --locale fr-FR   # create or refresh locales/fr-FR
-# Edit locales/fr-FR/WSR_translation_*.csv: the Target (FR) cells.
-python pipeline.py check --locale fr-FR         # validate
-python pipeline.py install --locale fr-FR       # build and copy into the game
+$locale = "LOCALE_CODE"                         # registered in locale_profiles.json
+python pipeline.py init-locale --locale $locale # create or refresh the locale folder
+# Edit locales/<locale>/WSR_translation_*.csv: the Target (..) cells.
+python pipeline.py check --locale $locale       # validate
+python pipeline.py install --locale $locale     # build and copy into the game
 ```
 
 `build` only regenerates the runtime data inside the kit; `install` builds and
@@ -24,8 +25,8 @@ Select the same language in the game. Leave a target blank for English
 fallback, and keep keys and source cells unchanged during ordinary
 translation.
 
-In the extracted translator kit, `build_player.bat fr-FR` creates the player
-EXE. In the repository use `dist_build/2_build_player_release.bat fr-FR`.
+In the extracted translator kit, `build_player.bat $locale` creates the player
+EXE. In the repository use `dist_build/2_build_player_release.bat $locale`.
 Player packages contain only the selected locale's data and its runtime
 dependencies. They do not contain the editor.
 
@@ -43,9 +44,8 @@ not of player installers.
   on text the overlay has tagged with its key — most translated or
   translatable text, but not every piece of the screen. `Ctrl+Enter` saves,
   `Esc` closes. Clearing a translation keeps the row and falls back to
-  English. Editing the key field renames the key in every language (see
-  [Source catalog and updates](#source-catalog-and-updates)); this needs
-  Python on `PATH`.
+  English. Keys are shared stable identifiers and should not be changed during
+  translation.
 - **`📝 Translation Data`** searches and edits complete rows, including event
   and quote templates and table headers.
 - **`Ctrl+Shift+Q`** toggles translation on and off for the session, to compare
@@ -116,13 +116,8 @@ this catalog. Per-locale CSVs require `Key`, `Source (EN)`, and their configured
 target column; `init-locale` also copies Context and preserves translator notes.
 Existing three-column CSVs remain supported.
 
-Keys are shared by every language. Rename one with
-`python pipeline.py rename-key OLD_KEY NEW_KEY`, or by editing the key field
-in the in-game editor (F2), which runs the same command. It records the pair in
-`key_migrations.csv`, updates the source catalog, every locale and the
-generated data, and moves the row to the category file of its new prefix.
-Review and commit those changes together. Clearing a target in the editor
-preserves its source row.
+Keys are shared by every language and should remain unchanged during ordinary
+translation. Clearing a target in the editor preserves its source row.
 
 Run `init-locale` after catalog changes. It preserves translations and optional
 note columns. Removed keys are archived in `retired_translations.csv`. Duplicate

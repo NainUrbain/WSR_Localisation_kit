@@ -4,30 +4,23 @@ Named keys use lowercase letters, digits and single underscores:
 `<domain>_<description>[_<number>]`. Existing domain names such as `mainui`,
 `researchreport` and `stockbuy` remain intact so category routing stays stable.
 
-Examples:
+Examples include `mainmenu_delete_save_title`, `tutorial_1_10_body`,
+`general_ceo_of_corp` and `quotes_1`.
 
-- `Mainmenu_delete_save_title` → `mainmenu_delete_save_title`
-- `tutorial_1-10_body` → `tutorial_1_10_body`
-- `General_CEOofCORP` → `general_ceo_of_corp`
-- `Quotes_1` → `quotes_1`
+Most catalog rows have a semantic key describing where or how their text is
+used. `CT-<hash>` and `UI-<hash>` are generated fallback identifiers for the
+remaining strings whose in-game source or output location could not be
+identified reliably enough to assign a semantic name. They should remain
+stable until that context is known. `HDR-<id>` is a separate generated format
+used for table-header tooltip data.
 
-`CT-<hash>`, `UI-<hash>` and `HDR-<id>` are reserved generated identifiers.
-Their format is retained for editor capture, filtering and table-header data.
-Do not merge different entries merely because their normalized names coincide.
-For example, `firemenagement_result` is now
-`firemanagement_result_pink_slips`, distinct from `firemanagement_result`.
+The current 5,203-row catalog contains 4,797 semantic keys, 181 `CT-` keys,
+111 `UI-` keys and 114 `HDR-` keys.
 
-Every rename is recorded in `key_migrations.csv`. Use
-`python pipeline.py rename-key OLD_KEY NEW_KEY` to update the source catalog,
-all locales, structured references and generated runtime data together.
-Keep the `_review` suffix when renaming a reviewed translation.
+Keys are shared by every locale and should be treated as stable identifiers.
 
 Run `python pipeline_tools/translation_csvs.py --sort` to sort all 14 source
 CSV files and every locale's translation CSV files. Sorting uses natural key
 order (`1`, `2`, `10`); generated CT-/UI- entries come last. Category files
 remain defined by `pipeline_tools/translation_csvs.py` and `split_map.json`.
-Rebuild the locale runtime data after editing or sorting CSV files.
-
-The September 2026 cleanup renamed 607 keys and sorted 5,203 entries per
-catalog. Source text, translations and context were preserved in the source,
-Korean, French and Japanese catalogs.
+Rebuild the locale runtime data after sorting CSV files.
