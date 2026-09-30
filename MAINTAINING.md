@@ -70,6 +70,11 @@ in [KEY_NAMING.md](wsr_package_build/KEY_NAMING.md).
 
 ## Building installers
 
+For the Steam Workshop overlay builder, content-folder layout, bundled preview,
+and loader integration test, see [Workshop build and upload](dist_build/WORKSHOP.md).
+Workshop output includes nine locally generated modified game UI files and must
+remain in the ignored release directory, outside source control.
+
 Requires PyInstaller (`python -m pip install pyinstaller`). Generated outputs
 are excluded from Git.
 

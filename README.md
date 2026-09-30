@@ -7,7 +7,7 @@
 
 WSR_Localisation_kit is a multilingual localization framework for Wall Street Raider that grew out of the WSR_KR Korean translation patch. It translates the interface, reports, news, help text, and the sentences the game generates at runtime.
 
-> This project does not redistribute the game executable or complete copies of the original game source. A legitimate installation of Wall Street Raider is required.
+> The source repository and installer releases do not include complete game source files. The optional Workshop builder produces nine modified UI files locally from a legitimate game installation; these retain their original rights. No game executable is included.
 
 ## Language status
 
@@ -67,6 +67,11 @@ For most locales this creates `dist_build\dist\WSR_<locale>_user.exe`; the Korea
 Building installers and updating the patch for a new game version are covered in [MAINTAINING.md](MAINTAINING.md).
 
 ## How the patch works
+
+For a native Steam Workshop overlay, see [Workshop build and upload](dist_build/WORKSHOP.md).
+The builder outputs a `content/js/` tree and bundles locale data as a JavaScript
+module so it loads through the game's Workshop protocol without a separate installer.
+Generated game-derived files stay outside source control in `dist_build/dist/`.
 
 The patch modifies nine files in the game's `js/` folder (`api.js`, `app.js`, `locale/localeManager.js`, and six files in `components/`) and adds the translation runtime next to them. `patch_manifest.json` holds only the changed lines, never copies of the game files. Before changing anything the installer verifies each file's SHA-256 hash and backs up the originals to `wsr-kr-developer-backup/` (developer build) or `wsr-kr-player-backup/` (player installer).
 
